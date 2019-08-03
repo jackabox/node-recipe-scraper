@@ -1,0 +1,20 @@
+{
+  "name": "recipe-api-parser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jack Whiting <hi@jackwhiting.co.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/nodemon app.js --exec babel-node --"
+  }
+}
