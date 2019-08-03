@@ -6,6 +6,6 @@ import recipeController from '../controllers/recipe'
 const router = express.Router()
 
 // Parser Routes
-router.get('/api/v1/recipe/fetch', recipeController.show)
+router.post('/api/v1/recipe/fetch', recipeController.fetch)
 
 export default router

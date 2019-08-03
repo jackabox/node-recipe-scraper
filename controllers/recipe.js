@@ -3,7 +3,7 @@ import PioneerWomanScraper from '../libs/Scraper/PioneerWomanScraper'
 import BBCGoodFoodScraper from '../libs/Scraper/BBCGoodFoodScraper'
 
 class RecipeController {
-  async show(req, res) {
+  async fetch(req, res) {
     const url = String(req.body.url)
 
     if (!url) {
@@ -14,7 +14,7 @@ class RecipeController {
     }
 
     // check for the type of scraper needed
-    // todo refactor this later
+    // todo refactor this later - can't move this to it's own func
     let scraper = null
 
     if (url.includes('jamieoliver.com')) {
