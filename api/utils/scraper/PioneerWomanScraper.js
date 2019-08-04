@@ -1,5 +1,7 @@
 import BaseScraper from './BaseScraper'
 
+const cheerio = require('cheerio')
+
 class PioneerWomanScraper extends BaseScraper {
   constructor() {
     super({

@@ -13,6 +13,7 @@ class BaseScraper {
     await request(url)
       .then(html => {
         let ingredients = cheerio(this.toScrape.ingredients, html)
+        console.log(ingredients)
         this.handleIngredients(ingredients)
 
         let method = cheerio(this.toScrape.method, html)

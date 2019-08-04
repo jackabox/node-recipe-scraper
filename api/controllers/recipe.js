@@ -20,6 +20,7 @@ class RecipeController {
     if (url.includes('jamieoliver.com')) {
       scraper = new JamieOliverFoodScraper()
     } else if (url.includes('thepioneerwoman.com')) {
+      console.log('inside pioneer')
       scraper = new PioneerWomanScraper()
     } else if (url.includes('bbcgoodfood.com')) {
       scraper = new BBCGoodFoodScraper()
