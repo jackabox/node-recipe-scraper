@@ -18,6 +18,7 @@ class BBCGoodFoodScraper extends BaseScraper {
   handleMethod(method) {
     Array.prototype.forEach.call(method, ({ children }) => {
       let childHtml = ''
+
       Array.prototype.forEach.call(children, ({ data }) => {
         childHtml = childHtml + data
       })

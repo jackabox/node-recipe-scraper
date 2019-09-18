@@ -17,13 +17,10 @@ class RecipeController {
     // todo refactor this later - can't move this to it's own func
     let scraper = null
 
-    if (url.includes('jamieoliver.com')) {
-      scraper = new JamieOliverFoodScraper()
-    } else if (url.includes('thepioneerwoman.com')) {
-      console.log('inside pioneer')
-      scraper = new PioneerWomanScraper()
-    } else if (url.includes('bbcgoodfood.com')) {
-      scraper = new BBCGoodFoodScraper()
+    const matchedClass = this.matchUrlToScraper(url)
+
+    if (matchedClass) {
+      scraper = eval(matchedClass)
     }
 
     // If no scraper return nothing
@@ -42,6 +39,21 @@ class RecipeController {
       success: true,
       data: scraper.data
     })
+  }
+
+  matchUrlToScraper(url) {
+    const allowedUrls = [
+      {
+        partial: 'jamieoliver.com',
+        class: `new JamieOliverFoodScraper(url, 'Jamie Oliver')`
+      },
+      {
+        partial: 'thepioneerwoman.com',
+        class: `new PioneerWomanScraper(url, 'The Pioneer Woman')`
+      }
+    ]
+
+    return allowedUrls.find(item => url.includes(item.partial))
   }
 }
 

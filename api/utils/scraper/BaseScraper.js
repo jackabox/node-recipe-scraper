@@ -12,34 +12,40 @@ class BaseScraper {
   async fetch(url) {
     await request(url)
       .then(html => {
+        // author
+        // categories
+
+        // ingredients
         let ingredients = cheerio(this.toScrape.ingredients, html)
-        console.log(ingredients)
         this.handleIngredients(ingredients)
 
+        // image
+        let image = cheerio(this.toScrape.image, html)
+        this.handleImage(image)
+
+        // method
         let method = cheerio(this.toScrape.method, html)
         this.handleMethod(method)
 
-        let image = cheerio(this.toScrape.image, html)
-        this.handleImage(image)
+        // cookTime
+        // prepTime
+        // description
+        // name
+        // totalTime
+        // url
+        // servings
+        // source
       })
       .catch(error => {
         console.log(error)
       })
-
-    console.log({
-      ingredients: this.ingredients,
-      method: this.method,
-      image: this.image
-    })
   }
 
   handleIngredients(ingredients) {
-    console.log(ingredients)
     // @todo implement here
   }
 
   handleMethod(method) {
-    console.log(method)
     // @todo implement here
   }
 
